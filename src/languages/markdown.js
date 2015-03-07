@@ -33,6 +33,7 @@ function(hljs) {
         className: 'header',
         begin: /^#\s*/, end: /$/,
         returnBegin: true,
+        relevance: 0,
         contains: [
 		  { className: 'header-markup', begin: /^#\s*/ },
 		  { className: 'header-1', endsWithParent: true },
@@ -48,6 +49,7 @@ function(hljs) {
         className: 'list-item',
         begin: /^[ \t]*([*+-]|(\d+\.))[ \t]+/, end: '$',
         returnBegin: true,
+        relevance: 0.3,
         contains: [
           {
             className: 'bullet',
@@ -56,7 +58,7 @@ function(hljs) {
           {
             subLanguage: 'markdown-inline',
             endsWithParent: true,
-            relevance: 0
+            relevance: 1
           }
         ]
       },
@@ -65,11 +67,12 @@ function(hljs) {
       {
         className: 'blockquote',
         begin: '^>[ \\t]+', end: '$',
+        relevance: 1,
         contains: [
           {
             subLanguage: 'markdown-inline',
             endsWithParent: true,
-            relevance: 0
+            relevance: 1
           }
         ]
       },
